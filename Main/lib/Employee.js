@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 
 class Employee {
 
-    constructor(employeeName, id, email){
+    constructor(){
         this.employeeName = employeeName;
         this.id = id;
         this.email = email;
@@ -18,7 +18,7 @@ class Employee {
         console.log(`hello`);
     }
     getRole(id){ //returns employee
-        console.log(`Employee`);
+        console.log(`hello`);
     }
 
 }
