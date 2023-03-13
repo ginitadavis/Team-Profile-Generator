@@ -8,6 +8,7 @@ let teamMemberType;
 let basicInfo = [];
 let internInfo = '';
 let engineerInfo = '';
+let teamArray = [];
 
 insertManager();
 
@@ -15,27 +16,60 @@ async function insertManager() {
     await inquirer.prompt([
         {
             type: 'input',
-            message: `Please enter the Manager's name`,
-            name: 'name'
+            message: `Please enter the manager's name`,
+            name: 'name',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter the manager's name!");
+                    return false;
+                }
+            }
         },
         {
-            type: 'input',
+            type: 'number',
             message: `What is the Manager's ID?`,
-            name: 'ID'
+            name: 'id',
+            validate: idInput => {
+                if (!isNaN(parseInt(idInput))) {
+                    return true;
+                } else {
+                    console.log(`\nPlease enter a correct answer, the employee id should be a number!`);
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             message: 'What is the email address?',
-            name: 'email'
+            name: 'email',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log("Please enter an email address!");
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             message: 'What is the office number?',
-            name: 'officeNumber'
+            name: 'officeNumber',
+            validate: officeInput => {
+                if (officeInput) {
+                    return true;
+                } else {
+                    console.log("Please enter an office number.");
+                    return false;
+                }
+            }
         }
     ])
         .then(data => {
-            //let manager = new Manager(data.name, data.ID, data.email, data.officeNumber);
+            manager = new Manager(data.name, data.id, data.email, data.officeNumber);
+            teamArray.push(manager);
             addATeamMember();
         });
 }
@@ -56,27 +90,59 @@ async function addATeamMember() {
         {
             type: 'input',
             message: `Please enter the name`,
-            name: 'name'
+            name: 'name',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter the employee's name");
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             message: `What is the ID?`,
-            name: 'ID'
+            name: 'id',
+            validate: idInput => {
+                if (idInput) {
+                    return true;
+                } else {
+                    console.log(`\nPlease enter an ID number\n`);
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             message: 'What is the email address?',
-            name: 'email'
+            name: 'email',
+            validate: emailInput => {
+                if (emailInput) {
+                    return true;
+                } else {
+                    console.log("Please enter an email address.");
+                    return false;
+                }
+            }
         }
     ])
-    
+
 
     if (teamMemberType.memberType === 'Engineer') {
         engineerInfo = await inquirer.prompt([
             {
                 type: 'input',
                 message: 'What is the github username?',
-                name: 'github'
+                name: 'github',
+                validate: githubInput => {
+                    if (githubInput) {
+                        return true;
+                    } else {
+                        console.log("Please enter the github username");
+                        return false;
+                    }
+                }
             },
             {
                 type: 'list',
@@ -86,24 +152,31 @@ async function addATeamMember() {
             }
         ])
 
-        console.log('engineer info ' + engineerInfo.addMember)
-        console.log('engineer info ' + basicInfo.name, basicInfo.ID, basicInfo.email, engineerInfo.github)
+        engineer = new Engineer(basicInfo.name, basicInfo.id, basicInfo.email, engineerInfo.github);
+        teamArray.push(engineer);
 
-        //let engineer = new Engineer(basicInfo.name, basicInfo.ID, basicInfo.email, engineerInfo.github);
+        if (engineerInfo.addMember === 'Yes') {
+            addATeamMember();
+        } else {
+            console.log('Team succesfully created.')
+            console.table(teamArray);
+        }
 
-            if (engineerInfo.addMember === 'Yes') {
-                addATeamMember();
-            } {
-                console.log('Team succesfully created.')
-            }
 
-        
     } else if (teamMemberType.memberType === 'Intern') {
         internInfo = await inquirer.prompt([
             {
                 type: 'input',
                 message: 'What is the school name?',
-                name: 'email'
+                name: 'email',
+                validate: emailInput => {
+                    if (emailInput) {
+                        return true;
+                    } else {
+                        console.log("Please enter an email address.");
+                        return false;
+                    }
+                }
             },
             {
                 type: 'list',
@@ -113,16 +186,15 @@ async function addATeamMember() {
             }
         ])
 
-        console.log('intern info ' + basicInfo.name, basicInfo.ID, basicInfo.email, internInfo.school)
-        //let intern = new Intern(basicInfo.name, basicInfo.ID, basicInfo.email, internInfo.school);
+        intern = new Intern(basicInfo.name, basicInfo.ID, basicInfo.email, internInfo.school);
+        teamArray.push(intern);
 
-            if (internInfo.addMember === 'Yes') {
-                addATeamMember();
-            } else {
-                console.log('Team succesfully created.')
-            }
-
-        
+        if (internInfo.addMember === 'Yes') {
+            addATeamMember();
+        } else {
+            console.log('Team succesfully created.');
+            console.table(teamArray);
+        }
     }
 }
 

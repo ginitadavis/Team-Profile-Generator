@@ -2,23 +2,27 @@ const inquirer = require('inquirer');
 
 class Employee {
 
-    constructor(){
-        this.employeeName = employeeName;
+    constructor(name, id, email){
+        this.name = name;
         this.id = id;
         this.email = email;
+        this.role = this.getRole();
     }
 
-    getName(id){
-        console.log(`hello`);
+    getName(){
+        return this.name;
     }
-    getId(id){
-        console.log(`hello`);
+
+    getId(){
+        return this.id;
     }
-    getEmail(id){
-        console.log(`hello`);
+
+    getEmail(){
+        return this.email;
     }
-    getRole(id){ //returns employee
-        console.log(`hello`);
+
+    getRole(){
+        return 'Employee'
     }
 
 }
