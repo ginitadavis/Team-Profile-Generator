@@ -1,11 +1,42 @@
-const Employee = require("../lib/Employee");
+const Engineer = require("../lib/Engineer");
 
-describe('Employee', () => {
-    it('if i create an employee w/ props i expect those prop to be on my emp obj', () => {
-        const emp = new Employee('gina', 'g11101', 'gina@davis.com')
+describe('Engineer', () => {
+    it('if I create an engineer w/ props I expect those props to be on my eng obj', () => {
+        const eng = new Engineer('gina', 'g11101', 'gina@davis.com', 'ginitadavis')
 
-        expect(emp.name).toBe('gina');
-        expect(emp.id).toBe('g11101');
-        expect(emp.email).toBe('gina@davis.com');
+        expect(eng.name).toBe('gina');
+        expect(eng.id).toBe('g11101');
+        expect(eng.email).toBe('gina@davis.com');
     });
+
+    it('should return name when getName is called', () => {
+        const eng = new Engineer('gina', 'g11101', 'gina@davis.com', 'ginitadavis')
+        const result = eng.getName();
+        expect(result).toBe('gina');
+    });
+
+    it('should return Id when getId is called', () => {
+        const eng = new Engineer('gina', 'g11101', 'gina@davis.com', 'ginitadavis')
+        const result = eng.getId();
+        expect(result).toBe('g11101');
+    });
+
+    it('should return email when getEmail is called', () => {
+        const eng = new Engineer('gina', 'g11101', 'gina@davis.com', 'ginitadavis')
+        const result = eng.getEmail();
+        expect(result).toBe('gina@davis.com');
+    });
+
+    it('should return role when getRole is called', () => {
+        const eng = new Engineer('gina', 'g11101', 'gina@davis.com', 'ginitadavis')
+        const result = eng.getRole();
+        expect(result).toBe('Engineer');
+    });
+
+    it('should return role when getRole is called', () => {
+        const eng = new Engineer('gina', 'g11101', 'gina@davis.com', 'ginitadavis')
+        const result = eng.getGithub();
+        expect(result).toBe('ginitadavis');
+    });
+
   });
