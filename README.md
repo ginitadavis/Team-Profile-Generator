@@ -22,7 +22,7 @@ This app accepts user input and requests the user to enter the information of te
 # Installation
 After opening the terminal, it is necessary to install npm init -y, then the inquirer package, npm inquirer@8.2.4.
 
-![alt text](assets/images/inquirer-screenshot.png)
+![alt text](Main/assets/images/inquirer-screenshot.png)
 
 
 
@@ -30,7 +30,7 @@ After opening the terminal, it is necessary to install npm init -y, then the inq
 
 After going to the terminal and typing node index.js, the application will start displaying a series of prompts to build a team, starting with the manager information, then there will be options to add an engineer and an intern. After answering all the questions and exiting the application in the terminal, an HTML will be generated.
 
-![alt text](assets/images/terminal-readme.png)
+![alt text](Main/assets/images/visualization.png)
 
 Link to the walkthrough video that demonstrates the functionality of the README generator [Click here to watch the video](https://drive.google.com/file/d/1zGuKZzuoalbatS5zntjUP5z35saLKSWd/view)
 

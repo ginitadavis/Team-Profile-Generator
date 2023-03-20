@@ -158,7 +158,7 @@ async function addATeamMember() {
                 type: 'list',
                 message: 'Do you want to add another team member?',
                 name: 'addMember',
-                choices: ['Yes', 'No']
+                choices: ['Yes', 'No. I finished building my team.']
             }
         ])
 
@@ -168,7 +168,7 @@ async function addATeamMember() {
         if (engineerInfo.addMember === 'Yes') {
             addATeamMember();
         } else {
-            console.log('Team succesfully created.')
+            console.log('****Team succesfully created.****')
             createFile();
         }
 
@@ -192,7 +192,7 @@ async function addATeamMember() {
                 type: 'list',
                 message: 'Do you want to add another team member?',
                 name: 'addMember',
-                choices: ['Yes', 'No']
+                choices: ['Yes', 'No. I finished building my team.']
             }
         ])
 
@@ -202,7 +202,7 @@ async function addATeamMember() {
         if (internInfo.addMember === 'Yes') {
             addATeamMember();
         } else {
-            console.log('Team succesfully created.');
+            console.log('****Team succesfully created.****');
             createFile();
         }
     }
@@ -333,7 +333,7 @@ function createFile() {
     htmlFinal = generateHtml();
     // console.log(htmlSemiFinal);
     // console.log(htmlFinal);
-    fs.writeFile('generatedHtml.html', htmlFinal, function () {
+    fs.writeFile('dist/generatedHtml.html', htmlFinal, function () {
         console.log('README successfully created!');
     })
 }
