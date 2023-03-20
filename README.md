@@ -32,7 +32,7 @@ After going to the terminal and typing node index.js, the application will start
 
 ![alt text](Main/assets/images/visualization.png)
 
-Link to the walkthrough video that demonstrates the functionality of the README generator [Click here to watch the video](https://drive.google.com/file/d/1zGuKZzuoalbatS5zntjUP5z35saLKSWd/view)
+Link to the walkthrough video that demonstrates the functionality of the README generator [Click here to watch the video](https://drive.google.com/file/d/12mAhDXQSrzLS1OAqkXVvSeBenZvngB3o/view)
 
 
 
