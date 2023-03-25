@@ -30,9 +30,9 @@ After opening the terminal, it is necessary to install npm init -y, then the inq
 
 After going to the terminal and typing node index.js, the application will start displaying a series of prompts to build a team, starting with the manager information, then there will be options to add an engineer and an intern. After answering all the questions and exiting the application in the terminal, an HTML will be generated.
 
-![alt text](Main/assets/images/visualization.png)
+![alt text](assets/images/visualization.png)
 
-![alt text](Main/assets/images/Final-product.png)
+![alt text](assets/images/Final-product.png)
 
 Link to the walkthrough video that demonstrates the functionality of the README generator [Click here to watch the video](https://drive.google.com/file/d/12mAhDXQSrzLS1OAqkXVvSeBenZvngB3o/view)
 
